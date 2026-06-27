@@ -6,7 +6,7 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { Diamond, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PK);
 
@@ -34,10 +34,8 @@ function CheckoutForm() {
     });
     if (error) { toast.error(error.message); } 
     else if (paymentIntent.status === "succeeded") {
-        await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/payments`, { email: session.user.email, transactionId: paymentIntent.id }, {
-            headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` }
-        });
-        toast.success("Account Upgraded!");
+        await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/payments`, { email: session.user.email, transactionId: paymentIntent.id }, { headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` } });
+        toast.success("PRO Active!");
         router.push("/dashboard");
     }
     setProcessing(false);
@@ -46,7 +44,7 @@ function CheckoutForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="bg-black/40 border border-white/10 p-5 rounded-xl"><CardElement options={{style: {base: {color: '#fff', fontSize: '16px'}}}} /></div>
-      <button disabled={!stripe || processing} className="w-full bg-violet-600 hover:bg-violet-700 py-4 rounded-xl font-black uppercase text-xs shadow-lg shadow-violet-600/20">Pay One-time $5.00</button>
+      <button disabled={!stripe || processing} className="w-full bg-violet-600 py-4 rounded-xl font-black uppercase text-white shadow-xl">Pay One-time $5.00</button>
     </form>
   );
 }
@@ -56,21 +54,24 @@ export default function Payment() {
   const handleSimulate = async () => {
     const token = localStorage.getItem("access-token");
     await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/simulate-payment`, {}, { headers: { authorization: `Bearer ${token}` } });
-    toast.success("SIMULATED SUCCESS ✅");
+    toast.success("Simulated Success ✅");
     router.push("/dashboard");
   };
 
   return (
     <div className="max-w-6xl mx-auto py-10 animate-in fade-in duration-700">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="bg-[#0F172A] p-10 rounded-[2.5rem] border border-white/5">
-           <Diamond className="text-cyan-400 mb-6" size={40}/><h2 className="text-3xl font-bold text-white mb-6 uppercase tracking-tight">Pro Lifetime Access</h2><div className="text-6xl font-black text-white mb-6">$5.00</div><p className="text-slate-400 mb-10 italic">Unlock infinite private neural prompts and get verified professional badge.</p><div className="flex gap-2 text-[10px] font-black uppercase text-slate-600 items-center"><ShieldCheck size={16}/> Stripe Secured Encryption</div>
+        <div className="bg-[#0F172A] p-10 rounded-[2.5rem] border border-white/5 text-white">
+           <h2 className="text-3xl font-bold mb-6">PRO LIFETIME ACCESS</h2>
+           <div className="text-6xl font-black mb-6">$5.00</div>
+           <p className="text-slate-400 mb-10 italic">Unlock infinite private neural prompts forever.</p>
+           <div className="flex gap-2 text-[10px] font-black uppercase text-slate-600"><ShieldCheck size={16}/> Stripe Secured Encryption</div>
         </div>
-        <div className="bg-[#0F172A] p-10 rounded-[2.5rem] border border-white/5 space-y-10 shadow-2xl">
+        <div className="bg-[#0F172A] p-10 rounded-[2.5rem] border border-white/5 space-y-10">
            <Elements stripe={stripePromise}><CheckoutForm /></Elements>
            <div className="border-t border-dashed border-white/10 pt-10 text-center">
-              <p className="text-[10px] font-black text-violet-400 uppercase mb-4 tracking-widest">Testing Environment</p>
-              <button onClick={handleSimulate} className="w-full bg-cyan-500 hover:bg-cyan-400 py-4 rounded-xl font-black uppercase text-[10px] tracking-[0.2em] text-black">Simulate $5 Test Checkout</button>
+              <p className="text-[10px] font-black text-violet-400 uppercase mb-4 tracking-widest uppercase">Testing Environment</p>
+              <button onClick={handleSimulate} className="w-full bg-cyan-500 py-4 rounded-xl font-black uppercase text-xs text-black shadow-lg">Simulate $5 Test Checkout</button>
            </div>
         </div>
       </div>
