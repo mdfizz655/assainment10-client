@@ -1,5 +1,5 @@
 "use client";
-import { usePathname } from "next/navigation"; // পাথ চেক করার জন্য
+import { usePathname } from "next/navigation";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,8 +12,8 @@ export default function RootLayout({ children }) {
   const isDashboard = pathname.startsWith("/dashboard");
 
   return (
-    <html lang="en">
-      <body className="antialiased bg-white">
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased bg-white" suppressHydrationWarning>
         <Providers>
           {/* যদি ড্যাশবোর্ড না হয়, তবেই Navbar দেখাও */}
           {!isDashboard && <Navbar />}
