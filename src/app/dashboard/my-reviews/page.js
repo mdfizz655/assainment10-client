@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 import { Star, Eye } from "lucide-react";
-import Link from "next/link"; // Link ইমপোর্ট করা হয়েছে
+import Link from "next/link"; // Link 
 
 export default function MyReviews() {
   const { data: session } = useSession();
