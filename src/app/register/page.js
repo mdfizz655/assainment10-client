@@ -11,7 +11,7 @@ export default function Register() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  // ১. ইমেইল/পাসওয়ার্ড দিয়ে রেজিস্ট্রেশন হ্যান্ডলার
+  
   const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -32,7 +32,7 @@ export default function Register() {
     };
 
     try {
-      // আপনার ব্যাকএন্ড সার্ভারে ডাটা পাঠানো
+      
       const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users`, newUser);
       
       if (res.data.insertedId) {
@@ -48,7 +48,7 @@ export default function Register() {
     }
   };
 
-  // ২. গুগল দিয়ে রেজিস্ট্রেশন/লগইন হ্যান্ডলার
+  
   const handleGoogleLogin = async () => {
     try {
       await signIn("google", { callbackUrl: "/" });

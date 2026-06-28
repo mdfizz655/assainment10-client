@@ -27,7 +27,7 @@ export default function ReportedPrompts() {
     }
   };
 
-  // রিপোর্ট ডিসমিস করা (শুধুমাত্র রিপোর্ট ডিলিট হবে, প্রম্পট থাকবে)
+  
   const handleDismiss = async (reportId) => {
     try {
       const token = localStorage.getItem("access-token");
@@ -39,7 +39,7 @@ export default function ReportedPrompts() {
     } catch (err) { toast.error("Failed to dismiss"); }
   };
 
-  // প্রম্পট পুরোপুরি রিমুভ করা
+  
   const handleRemovePrompt = async (promptId) => {
     if (window.confirm("Action Critical: Remove this prompt from marketplace?")) {
       try {

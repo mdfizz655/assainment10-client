@@ -12,19 +12,19 @@ const port = process.env.PORT || 5000;
 // 1. ULTIMATE CORS & PREFLIGHT FIX
 // ==========================================
 app.use(cors({
-    origin: true, // এটি যেকোনো অরিজিন থেকে রিকোয়েস্ট এলাউ করবে
+    origin: true, 
     credentials: true,
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS']
 }));
 
-// বিশেষ মিডলওয়্যার যা সব ব্রাউজার এরর দূর করবে
+
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', req.header('Origin'));
     res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.header('Access-Control-Allow-Credentials', 'true');
     
-    // OPTIONS রিকোয়েস্ট আসলে সাথে সাথে সাকসেস পাঠানো
+    
     if (req.method === 'OPTIONS') {
         return res.sendStatus(200);
     }
