@@ -20,7 +20,7 @@ export default function AllPrompts() {
       setLoading(true);
       try {
         const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/prompts?search=${search}&category=${category}&aiTool=${tool}&sort=${sort}&page=${page}`);
-        // ব্যাকএন্ড থেকে { result, total } অবজেক্ট আসছে
+       
         setPrompts(res.data.result || []);
       } catch (error) {
         console.error("Fetch error", error);
@@ -38,7 +38,7 @@ export default function AllPrompts() {
         {/* Header Section */}
         <header className="text-center mb-16 animate-in fade-in slide-in-from-top-4 duration-700">
           <h1 className="text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter">
-            Normal Catalog<span className="text-violet-500">.</span>
+            Neural Catalog<span className="text-violet-500">.</span>
           </h1>
           <p className="text-slate-500 font-bold uppercase text-[10px] tracking-[0.5em] mt-4">
             Discover verified high-performance AI instructions

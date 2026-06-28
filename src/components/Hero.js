@@ -6,24 +6,24 @@ import { useRouter } from 'next/navigation';
 
 const Hero = () => {
   const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState(""); // টাইপ করা টেক্সট সেভ করার জন্য
+  const [searchTerm, setSearchTerm] = useState(""); 
   const tags = ["Cyberpunk", "LogoDesign", "SaaS_Ideas", "Coding", "Marketing"];
 
-  // সার্চ ফাংশন
+  
   const handleSearch = () => {
     if (searchTerm.trim()) {
       router.push(`/prompts?search=${searchTerm}`);
     }
   };
 
-  // এন্টার কী চাপলে সার্চ হবে
+  
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSearch();
     }
   };
 
-  // ট্যাগ ক্লিক করলে সরাসরি ওই নামে সার্চ হবে
+  
   const handleTagClick = (tag) => {
     router.push(`/prompts?search=${tag}`);
   };
@@ -56,13 +56,13 @@ const Hero = () => {
                     <input 
                         type="text" 
                         value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)} // শুধুমাত্র স্টেট আপডেট হবে
-                        onKeyDown={handleKeyDown} // এন্টার বাটন হ্যান্ডেল করবে
+                        onChange={(e) => setSearchTerm(e.target.value)} 
+                        onKeyDown={handleKeyDown} 
                         placeholder="Search Midjourney, ChatGPT, Claude..." 
                         className="w-full p-4 bg-transparent outline-none text-white font-medium placeholder:text-slate-600" 
                     />
                     <button 
-                        onClick={handleSearch} // বাটনে ক্লিক করলে রিডাইরেক্ট হবে
+                        onClick={handleSearch} 
                         className="bg-white text-black px-8 py-4 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-violet-600 hover:text-white transition-all active:scale-95"
                     >
                         Search
