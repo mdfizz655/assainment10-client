@@ -14,13 +14,16 @@ export default function AddPrompt() {
   const [promptCount, setPromptCount] = useState(0);
   const [fileName, setFileName] = useState("");
 
-  // ১. ইউজারের প্রম্পট সংখ্যা চেক করার নিখুঁত লজিক
+  
+
+
   useEffect(() => {
     const fetchCount = async () => {
       if (session?.user?.email) {
         try {
           const token = localStorage.getItem("access-token");
-          // ইউআরএলটি একদম ক্লিন রাখা হয়েছে যাতে কোনো এরর না আসে
+          
+
           const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/my-prompts/${session.user.email}`, {
             headers: { authorization: `Bearer ${token}` }
           });
@@ -42,7 +45,8 @@ export default function AddPrompt() {
   const handleAddPrompt = async (e) => {
     e.preventDefault();
     
-    // ফ্রি ইউজার লিমিট চেক
+   
+
     if (promptCount >= 3 && session?.user?.status === 'Free') {
         return toast.error("Free Tier Limit Reached! Upgrade to Pro.");
     }
@@ -61,7 +65,8 @@ export default function AddPrompt() {
     formData.append("image", image);
 
     try {
-      // ImgBB-তে ইমেজ আপলোড
+     
+
       const imgRes = await axios.post(`https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY}`, formData);
       
       if (imgRes.data.success) {
@@ -101,7 +106,7 @@ export default function AddPrompt() {
     <div className="max-w-4xl mx-auto py-10 animate-in fade-in duration-700">
       <h1 className="text-3xl font-black text-white uppercase italic mb-10 tracking-tighter">Forge New Prompt</h1>
       
-      {/* লিমিট এলার্ট বক্স */}
+      
       {promptCount >= 3 && session?.user?.status === 'Free' && (
         <div className="mb-10 bg-red-500/10 border border-red-500/20 p-6 rounded-[2rem] flex items-start gap-4">
             <div className="p-3 bg-red-500 rounded-2xl text-white shadow-lg shadow-red-500/20">

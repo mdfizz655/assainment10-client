@@ -31,11 +31,11 @@ export default function AllPromptsAdmin() {
     try {
       const token = localStorage.getItem("access-token");
       await axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/admin/prompt-status/${id}`, { 
-        status: status, // 'approved' অথবা 'rejected'
+        status: status,
         feedback 
       }, { headers: { authorization: `Bearer ${token}` } });
       toast.success(`Prompt ${status}!`);
-      fetchPrompts(); // ডাটা রিফ্রেশ
+      fetchPrompts(); 
     } catch (err) { toast.error("Action failed"); }
   };
 

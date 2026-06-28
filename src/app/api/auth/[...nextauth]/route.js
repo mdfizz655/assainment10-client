@@ -27,14 +27,19 @@ const handler = NextAuth({
     })
   ],
   callbacks: {
-    // ১. টোকেন তৈরির সময় এবং প্রতিবার সেশন চেক করার সময় ডাটাবেস থেকে লেটেস্ট ডাটা আনা
+    
+
+    
     async jwt({ token, user }) {
       if (user) {
-        // প্রথমবার লগইন করার সময়
+       
+
+
         token.role = user.role;
         token.status = user.status;
       } else {
-        // প্রতিবার পেজ রিফ্রেশে বা সেশন রিকল করার সময় ব্যাকএন্ড থেকে লেটেস্ট ডাটাবেস ভ্যালু আনা
+        
+
         try {
           const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/login-check/${token.email}`);
           const dbUser = await res.json();
@@ -46,7 +51,7 @@ const handler = NextAuth({
       }
       return token;
     },
-    // ২. সেশনে টোকেন থেকে রোল এবং স্ট্যাটাস পাস করা যাতে ফ্রন্ট-এন্ডে পাওয়া যায়
+    
     async session({ session, token }) {
       if (session?.user) {
         session.user.role = token.role;

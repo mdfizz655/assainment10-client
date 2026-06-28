@@ -1,25 +1,39 @@
 "use client";
+
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useState, useEffect } from "react";
+ import { useState, useEffect } from "react";
+
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
+ 
+
+
+
+
 export default function CheckoutForm() {
   const stripe = useStripe();
+  
   const elements = useElements();
   const { data: session } = useSession();
   const router = useRouter();
   const [clientSecret, setClientSecret] = useState("");
+ 
   const [processing, setProcessing] = useState(false);
 
+
+
+
   useEffect(() => {
-    // ব্যাকএন্ড থেকে পেমেন্ট ইন্টেন্ট তৈরি
+    
     axios.post(`${process.env.NEXT_PUBLIC_API_URL}/create-payment-intent`, { price: 5 }, {
       headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` }
     }).then(res => setClientSecret(res.data.clientSecret));
   }, []);
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +45,8 @@ export default function CheckoutForm() {
       payment_method: { card, billing_details: { email: session?.user?.email } }
     });
 
+
+
     if (error) {
       toast.error(error.message);
     } else if (paymentIntent.status === "succeeded") {
@@ -38,11 +54,16 @@ export default function CheckoutForm() {
       await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/payments`, paymentInfo, {
         headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` }
       });
+
+
       toast.success("Welcome to Pro Lifetime!");
       router.push("/dashboard");
     }
     setProcessing(false);
   };
+
+
+  
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">

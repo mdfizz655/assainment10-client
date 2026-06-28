@@ -16,7 +16,7 @@ export default function AllUsers() {
     setUsers(res.data);
   };
 
-  // রোল পরিবর্তনের ফাংশন
+  
   const handleRoleChange = async (userId, newRole) => {
     try {
       const token = localStorage.getItem("access-token");
@@ -27,7 +27,7 @@ export default function AllUsers() {
       
       if (res.data.modifiedCount > 0) {
         toast.success(`Role updated to ${newRole}`);
-        fetchUsers(); // টেবিল রিফ্রেশ করা
+        fetchUsers(); 
       }
     } catch (error) {
       toast.error("Failed to update role");
@@ -62,7 +62,9 @@ export default function AllUsers() {
                   </span>
                 </td>
                 <td className="px-8 py-5 text-center">
-                   {/* রোল সিলেক্ট বক্স */}
+                  
+
+                  
                    <select 
                       defaultValue={user.role || "User"} 
                       onChange={(e) => handleRoleChange(user._id, e.target.value)}

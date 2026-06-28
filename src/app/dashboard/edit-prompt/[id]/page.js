@@ -21,7 +21,7 @@ export default function EditPrompt() {
     setLoading(true);
     const form = e.target;
     
-    // ডাটা সংগ্রহ করা
+   
     const updatedData = {
       title: form.title.value,
       description: form.description.value,
@@ -29,7 +29,7 @@ export default function EditPrompt() {
       category: form.category.value,
       aiTool: form.aiTool.value,
       visibility: form.visibility.value,
-      status: "pending" // এডিট করার পর আবার পেন্ডিং হবে (এডমিন চেক করার জন্য)
+      status: "pending" 
     };
 
     try {
