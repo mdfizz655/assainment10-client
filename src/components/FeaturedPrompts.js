@@ -40,4 +40,10 @@ const FeaturedPrompts = () => {
     </section>
   );
 };
+
+
+
+
+
+
 export default FeaturedPrompts;
