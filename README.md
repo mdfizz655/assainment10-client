@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PROMPTLY. - AI Prompt Sharing & Marketplace Platform
 
-## Getting Started
+**PROMPTLY.** is a high-performance, full-stack marketplace designed for AI enthusiasts to discover, share, and monetize high-quality AI prompts. Whether you need a cinematic Midjourney portrait or a complex ChatGPT coding assistant, PROMPTLY provides a secure, community-driven ecosystem.
 
-First, run the development server:
+## 🚀 Live Links
+- **Live Site:** https://assainment10-client.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
+- **Frontend:** Next.js (App Router), Tailwind CSS, Framer Motion (Animations)
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (with Aggregation Framework)
+- **Authentication:** NextAuth.js (JWT & Google Social Login)
+- **Payment Gateway:** Stripe API (Real & Simulation Integration)
+- **Icons:** Lucide React
+- **Toast:** React Toastify
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 👤 For Users
+- **Neural Catalog:** Advanced search and filtering by Category, AI Tool, and Difficulty.
+- **Bookmark System:** Save and manage favorite prompts in a personalized collection.
+- **Reviews & Ratings:** Share feedback and ratings on public prompts.
+- **Pro Upgrade:** One-time $5 payment (Stripe) to unlock premium private prompts and a verified badge.
 
-## Learn More
+### 🎨 For Creators
+- **Prompt Forge:** Create and publish prompts with image uploads (ImgBB).
+- **Creator Dashboard:** Real-time analytics with interactive charts (Recharts) tracking copies and growth.
+- **Usage Limits:** Free users are limited to 3 prompts, encouraging premium upgrades.
 
-To learn more about Next.js, take a look at the following resources:
+### 🛡️ For Admins
+- **Moderation Queue:** Review, Approve, or Reject (with feedback) prompt submissions.
+- **User Management:** Dynamic role switching (User, Creator, Admin) and account control.
+- **Financial Ledger:** Track all Stripe payments and transaction history.
+- **Reporting Hub:** Manage community reports and remove inappropriate content.
+- **System Analytics:** Total users, revenue, and content metrics using MongoDB Aggregation.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
