@@ -107,6 +107,8 @@ export default function PromptDetails() {
                 <StatCard icon={<ShieldCheck className="text-green-400" />} label="Level" value={prompt.difficulty} />
             </div>
 
+
+
             {/* REVIEW SECTION */}
             <div className="pt-20 border-t border-white/5">
                 <h3 className="text-3xl font-black text-white mb-10 uppercase tracking-tight">Community Feedback ({reviews.length})</h3>

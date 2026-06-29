@@ -4,10 +4,17 @@ import PromptCard from "@/components/PromptCard";
 import axios from "axios";
 import { Search, SlidersHorizontal, Sparkles, Loader2 } from "lucide-react";
 
+
+
+
 export default function AllPrompts() {
   const [prompts, setPrompts] = useState([]);
   const [loading, setLoading] = useState(true);
   
+
+
+
+
   // Search & Filter States
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
@@ -35,6 +42,8 @@ export default function AllPrompts() {
     <div className="min-h-screen bg-[#05070A] pt-32 pb-20 px-6">
       <div className="max-w-7xl mx-auto">
         
+
+
         {/* Header Section */}
         <header className="text-center mb-16 animate-in fade-in slide-in-from-top-4 duration-700">
           <h1 className="text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter">
@@ -45,10 +54,15 @@ export default function AllPrompts() {
           </p>
         </header>
 
+
+
         {/* Filters & Search Bar */}
         <div className="bg-[#0F172A]/80 backdrop-blur-xl border border-white/5 p-8 rounded-[2.5rem] mb-16 shadow-2xl shadow-black/50">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             
+
+
+
             {/* Search Input */}
             <div className="relative group md:col-span-1">
               <Search className="absolute left-4 top-3.5 text-slate-500 group-focus-within:text-violet-400 transition-colors" size={18} />
@@ -59,6 +73,10 @@ export default function AllPrompts() {
                 className="w-full bg-black/40 border border-white/10 p-3.5 pl-12 rounded-2xl text-white outline-none focus:border-violet-500 transition-all font-medium" 
               />
             </div>
+
+
+
+
 
             {/* Category Dropdown (Top 6) */}
             <div className="relative">
@@ -76,6 +94,9 @@ export default function AllPrompts() {
               </select>
             </div>
 
+
+
+
             {/* AI Engine Dropdown (Top 6) */}
             <div className="relative">
               <select 
@@ -92,6 +113,9 @@ export default function AllPrompts() {
               </select>
             </div>
 
+
+
+
             {/* Sort Options */}
             <div className="relative">
               <select 
@@ -106,6 +130,8 @@ export default function AllPrompts() {
 
           </div>
         </div>
+
+
 
         {/* Prompts Grid */}
         {loading ? (
@@ -123,6 +149,11 @@ export default function AllPrompts() {
             {prompts.map((p) => <PromptCard key={p._id} prompt={p} />)}
           </div>
         )}
+
+
+
+
+
 
         {/* Simple Pagination */}
         <div className="flex justify-center mt-20 gap-4">
