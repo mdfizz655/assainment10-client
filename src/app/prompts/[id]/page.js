@@ -132,6 +132,8 @@ export default function PromptDetails() {
             </div>
           </div>
 
+
+
           <div className="lg:col-span-4 bg-[#0D1117] border border-white/5 p-8 rounded-[2.5rem] h-fit sticky top-28 space-y-6">
               <div className="flex justify-between text-xs font-black uppercase"><span className="text-slate-500">Access</span><span className="text-white">{prompt.visibility}</span></div>
               <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10"><User className="text-indigo-400" /><p className="text-sm font-black text-white uppercase">{prompt.creatorName}</p></div>
