@@ -9,7 +9,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "@/components/CheckoutForm";
 
-// আপনার .env.local ফাইলে NEXT_PUBLIC_STRIPE_PK থাকতে হবে
+
+
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PK);
 
 export default function PaymentPage() {
@@ -17,7 +18,9 @@ export default function PaymentPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  // পেমেন্ট সিমুলেশন ফাংশন (১ ক্লিকে প্রো হওয়ার জন্য)
+  
+
+
   const handleSimulatePayment = async () => {
     setLoading(true);
     try {
@@ -28,7 +31,9 @@ export default function PaymentPage() {
 
       if (res.data.success) {
         toast.success("Identity Verified: PRO Access Activated!");
-        // সেশন রিফ্রেশ করার জন্য হার্ড রিডাইরেক্ট
+       
+
+
         window.location.href = "/dashboard"; 
       }
     } catch (error) {
@@ -47,7 +52,8 @@ export default function PaymentPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         
-        {/* বাম পাশের কার্ড: প্ল্যান ডিটেইলস */}
+       
+
         <div className="bg-[#0F172A] border border-white/5 p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
           <div className="bg-white/5 w-14 h-14 rounded-2xl flex items-center justify-center mb-8 border border-white/10">
             <Diamond className="text-cyan-400" size={28} />
@@ -68,18 +74,21 @@ export default function PaymentPage() {
           </div>
         </div>
 
-        {/* ডান পাশের কার্ড: পেমেন্ট গেটওয়ে */}
+       
+
         <div className="bg-[#0F172A] border border-white/5 p-10 rounded-[2.5rem] space-y-10 shadow-2xl">
            <div className="flex items-center gap-3 text-white font-bold uppercase tracking-widest text-xs italic border-b border-white/5 pb-4">
               <CreditCard size={18} className="text-violet-500" /> Secure Checkout
            </div>
 
-           {/* আসল স্ট্রাইপ পেমেন্ট ফরম */}
+          
+
            <Elements stripe={stripePromise}>
               <CheckoutForm />
            </Elements>
            
-           {/* সিমুলেশন বাটন (টেস্টিং এর জন্য) */}
+           
+           
            <div className="border-t border-dashed border-white/10 pt-10 text-center">
               <p className="text-[10px] font-black text-violet-400 uppercase mb-6 tracking-widest">Stripe Sandbox Assist</p>
               <button 

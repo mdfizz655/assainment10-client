@@ -6,10 +6,15 @@ import { Trash2, Eye, BarChart2, Edit3, Star } from "lucide-react";
 import { toast } from "react-toastify";
 import Link from "next/link";
 
+
+
 export default function MyPrompts() {
   const { data: session } = useSession();
   const [prompts, setPrompts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+
+
 
   useEffect(() => {
     if (session?.user?.email) {
@@ -29,6 +34,9 @@ export default function MyPrompts() {
       fetchMyPrompts();
     }
   }, [session]);
+
+
+
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this prompt?")) {
@@ -51,6 +59,10 @@ export default function MyPrompts() {
         <h1 className="text-3xl font-bold text-white tracking-tight uppercase italic">My Prompt Templates</h1>
         <p className="text-slate-500 mt-1 font-medium italic">Review, manage and optimize your creations.</p>
       </header>
+
+
+
+
 
       <div className="bg-[#0F172A] border border-white/5 rounded-[2rem] overflow-hidden">
         <table className="w-full text-left border-collapse">

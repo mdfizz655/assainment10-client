@@ -5,10 +5,16 @@ import axios from "axios";
 import { Star, Eye } from "lucide-react";
 import Link from "next/link"; // Link 
 
+
+
+
 export default function MyReviews() {
   const { data: session } = useSession();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+
+
+
 
   useEffect(() => {
     if (session?.user?.email) {
@@ -29,12 +35,18 @@ export default function MyReviews() {
     }
   }, [session]);
 
+
+
+
   return (
     <div className="space-y-8 animate-in fade-in duration-700">
       <header>
         <h1 className="text-3xl font-black text-white uppercase italic tracking-tight">My Feedback Hub</h1>
         <p className="text-slate-500 mt-2 font-medium">Manage all the ratings and reviews you've posted on the marketplace.</p>
       </header>
+
+
+
 
       <div className="bg-[#0F172A] border border-white/5 rounded-[2.5rem] overflow-hidden overflow-x-auto">
         <table className="w-full text-left min-w-[700px]">
