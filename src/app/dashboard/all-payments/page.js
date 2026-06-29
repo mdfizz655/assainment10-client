@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { User, Calendar } from "lucide-react";
 
+
+
 export default function AllPayments() {
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,6 +19,9 @@ export default function AllPayments() {
     });
   }, []);
 
+
+
+  
   return (
     <div className="space-y-8 animate-in fade-in">
       <h1 className="text-3xl font-black text-white uppercase italic">Premium Payments Log</h1>

@@ -4,11 +4,17 @@ import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+
+
+
+
 export default function EditPrompt() {
   const { id } = useParams();
   const router = useRouter();
   const [prompt, setPrompt] = useState(null);
   const [loading, setLoading] = useState(false);
+
+
 
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/prompts/${id}`)
@@ -20,6 +26,8 @@ export default function EditPrompt() {
     e.preventDefault();
     setLoading(true);
     const form = e.target;
+    
+   
     
    
     const updatedData = {

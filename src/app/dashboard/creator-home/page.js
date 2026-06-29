@@ -5,9 +5,13 @@ import axios from "axios";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Legend } from 'recharts';
 import { Files, Copy, Bookmark, Zap } from "lucide-react";
 
+
+
+
 export default function CreatorHome() {
   const { data: session } = useSession();
   const [data, setData] = useState(null);
+
 
   useEffect(() => {
     if (session?.user?.email) {
@@ -20,6 +24,9 @@ export default function CreatorHome() {
 
   if (!data) return <div className="text-white font-black text-center pt-20 animate-pulse">GENERATING INSIGHTS...</div>;
 
+
+
+
   return (
     <div className="space-y-10 animate-in fade-in duration-700">
       <header>
@@ -27,12 +34,18 @@ export default function CreatorHome() {
         <p className="text-slate-500 mt-2 font-medium">Real-time usage statistics and performance insights.</p>
       </header>
 
+
+
+
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatCard icon={<Files className="text-violet-400" />} label="Total Prompts" value={data.stats.totalPrompts} />
         <StatCard icon={<Copy className="text-cyan-400" />} label="Total Copies" value={data.stats.totalCopies} />
         <StatCard icon={<Bookmark className="text-green-400" />} label="Total Bookmarks" value={data.stats.totalBookmarks} />
       </div>
+
+
+
 
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -54,6 +67,9 @@ export default function CreatorHome() {
           </div>
         </div>
 
+
+
+
         {/* Line Chart: Accumulative Growth (Mock Logic) */}
         <div className="bg-[#0F172A] border border-white/5 p-8 rounded-[2.5rem]">
           <h3 className="text-white font-bold mb-8 flex items-center gap-3"><Zap size={18}/> Accumulative Growth Metrics</h3>
@@ -73,6 +89,9 @@ export default function CreatorHome() {
     </div>
   );
 }
+
+
+
 
 function StatCard({ icon, label, value }) {
   return (

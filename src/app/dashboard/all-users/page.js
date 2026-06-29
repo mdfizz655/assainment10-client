@@ -3,10 +3,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+
+
 export default function AllUsers() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => { fetchUsers(); }, []);
+
+
 
   const fetchUsers = async () => {
     const token = localStorage.getItem("access-token");
@@ -17,6 +21,8 @@ export default function AllUsers() {
   };
 
   
+
+
   const handleRoleChange = async (userId, newRole) => {
     try {
       const token = localStorage.getItem("access-token");
@@ -34,11 +40,15 @@ export default function AllUsers() {
     }
   };
 
+
+
+
   return (
     <div className="space-y-8 animate-in fade-in duration-700">
       <header>
         <h1 className="text-3xl font-black text-white uppercase italic">User Role Management</h1>
       </header>
+
 
       <div className="bg-[#0F172A] border border-white/5 rounded-[2.5rem] overflow-hidden">
         <table className="w-full text-left">
@@ -62,6 +72,8 @@ export default function AllUsers() {
                   </span>
                 </td>
                 <td className="px-8 py-5 text-center">
+                  
+
                   
 
                   

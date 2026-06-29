@@ -5,9 +5,14 @@ import { CheckCircle, XCircle, Trash2, Eye } from "lucide-react";
 import { toast } from "react-toastify";
 import Link from "next/link";
 
+
+
+
 export default function AllPromptsAdmin() {
   const [prompts, setPrompts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+
 
   useEffect(() => { fetchPrompts(); }, []);
 
@@ -21,6 +26,9 @@ export default function AllPromptsAdmin() {
     } catch (err) { console.error(err); }
     setLoading(false);
   };
+
+
+
 
   const handleStatusUpdate = async (id, status) => {
     let feedback = "";
@@ -39,6 +47,9 @@ export default function AllPromptsAdmin() {
     } catch (err) { toast.error("Action failed"); }
   };
 
+
+
+  
   return (
     <div className="space-y-8 animate-in fade-in duration-700">
       <h1 className="text-3xl font-black text-white uppercase italic">Moderation Queue</h1>
