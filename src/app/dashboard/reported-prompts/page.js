@@ -5,9 +5,14 @@ import { AlertCircle, Eye, CheckCircle, Trash2, UserX, ShieldAlert, MessageSquar
 import { toast } from "react-toastify";
 import Link from "next/link";
 
+
+
+
 export default function ReportedPrompts() {
   const [reports, setReports] = useState([]);
   const [loading, setLoading] = useState(true);
+
+
 
   useEffect(() => {
     fetchReports();
@@ -27,6 +32,9 @@ export default function ReportedPrompts() {
     }
   };
 
+
+
+
   
   const handleDismiss = async (reportId) => {
     try {
@@ -40,6 +48,8 @@ export default function ReportedPrompts() {
   };
 
   
+
+
   const handleRemovePrompt = async (promptId) => {
     if (window.confirm("Action Critical: Remove this prompt from marketplace?")) {
       try {
@@ -53,6 +63,9 @@ export default function ReportedPrompts() {
     }
   };
 
+
+
+
   const handleWarnCreator = () => {
     toast.warning("Creator has been warned via email system.");
   };
@@ -64,6 +77,8 @@ export default function ReportedPrompts() {
         <p className="text-slate-500 mt-2 font-medium">Review community warnings, warn creators, dismiss complaints, or remove posts.</p>
       </header>
 
+
+
       <div className="space-y-6">
         {loading ? (
             <div className="text-center py-20 font-black text-violet-400 animate-pulse uppercase tracking-[0.5em]">Scanning Reports...</div>
@@ -74,6 +89,9 @@ export default function ReportedPrompts() {
         ) : reports.map((report) => (
           <div key={report._id} className="bg-[#0F172A] border border-white/5 p-8 rounded-[2.5rem] relative group hover:border-red-500/20 transition-all">
             
+
+
+
             {/* Report Header */}
             <div className="flex justify-between items-start mb-6">
                <span className="bg-red-500/10 text-red-500 border border-red-500/20 px-4 py-1.5 rounded-xl text-[10px] font-black uppercase flex items-center gap-2">
@@ -81,6 +99,9 @@ export default function ReportedPrompts() {
                </span>
                <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">Reported on {new Date(report.date).toLocaleDateString()}</span>
             </div>
+
+
+
 
             {/* Prompt Info */}
             <h3 className="text-2xl font-bold text-white mb-4">Prompt: {report.promptTitle}</h3>
@@ -90,6 +111,9 @@ export default function ReportedPrompts() {
                 <p className="text-sm text-slate-300 italic leading-relaxed">"{report.details}"</p>
             </div>
 
+
+
+
             {/* Footer Actions */}
             <div className="flex flex-col lg:flex-row justify-between items-center gap-6 pt-6 border-t border-white/5">
                <div className="flex items-center gap-3">
@@ -97,10 +121,14 @@ export default function ReportedPrompts() {
                   <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Reported by: <span className="text-cyan-400">{report.reporterEmail}</span></p>
                </div>
                
+
+
+
                <div className="flex flex-wrap justify-center gap-3">
                   <Link href={`/prompts/${report.promptId}`}>
                     <button className="flex items-center gap-2 px-5 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] font-black uppercase transition-all"><Eye size={16}/> Inspect</button>
                   </Link>
+                  
                   
                   <button onClick={() => handleDismiss(report._id)} className="flex items-center gap-2 px-5 py-2.5 bg-green-500/10 text-green-500 hover:bg-green-500/20 border border-green-500/20 rounded-xl text-[10px] font-black uppercase transition-all"><CheckCircle size={16}/> Dismiss</button>
                   
