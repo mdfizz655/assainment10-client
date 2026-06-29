@@ -12,6 +12,8 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
 
   
+
+
   const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -20,6 +22,9 @@ export default function Register() {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
+
+
+
 
     const newUser = { 
       name, 
@@ -60,8 +65,15 @@ export default function Register() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 pt-28 pb-12 px-4">
       {/* Registration Card */}
+
+
+
+
       <div className="max-w-md w-full bg-white border-2 border-black p-10 rounded-[40px] shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
         
+
+
+
         {/* Logo & Header */}
         <div className="text-center mb-8">
           <div className="bg-black w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 rotate-12">
@@ -70,6 +82,12 @@ export default function Register() {
           <h2 className="text-3xl font-black tracking-tighter uppercase text-black">Join Promptly.</h2>
           <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mt-2">Start your AI journey today</p>
         </div>
+
+
+
+
+
+
 
         {/* Registration Form */}
         <form onSubmit={handleRegister} className="space-y-4">
@@ -102,12 +120,20 @@ export default function Register() {
           </button>
         </form>
 
+
+
+
+
         {/* Divider */}
         <div className="mt-6">
           <div className="relative mb-6 text-center">
             <div className="absolute inset-0 flex items-center"><span className="w-full border-t border-gray-200"></span></div>
             <span className="relative bg-white px-4 text-[10px] font-black text-gray-400 uppercase tracking-widest">Or Register With</span>
           </div>
+
+
+
+
 
           {/* Google Button */}
           <button 
@@ -119,6 +145,10 @@ export default function Register() {
             Sign up with Google
           </button>
         </div>
+
+
+
+
 
         {/* Footer Link */}
         <p className="text-center mt-10 text-[10px] font-black text-gray-400 uppercase tracking-widest">
